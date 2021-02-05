@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item ">
+      <a routerLink="todoitems/type a status" class="nav-link" routerLinkActive="active">Todo Item List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="add" class="nav-link">New Todo Item</a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="home" class="nav-link">Home</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="container">
+  <br>
+  <h5 style="text-align: center;">{{title}}</h5>
+  <hr>
+  <div class="card">
+    <div class="card-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span></span>
+  </div>
+</footer>

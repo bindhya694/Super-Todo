@@ -1,0 +1,22 @@
+<h5>Todo Details</h5>
+
+<hr/>
+<div *ngIf="todoitem">
+  <div>
+    <label><b>Name: </b></label> {{todoitem.name}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{todoitem.description}}
+  </div>
+  <div>
+    <label><b>Status: </b></label> {{todoitem.status}}
+  </div>
+  <div>
+    <label><b>Due Date: </b></label> {{todoitem.dueDate}}
+  </div>
+</div>
+
+<br>
+<br>
+<td><button (click)="list(todoitem.status)" class="btn btn-primary">Back to Todo Item List</button> &nbsp;&nbsp;&nbsp;
+<button (click)="updateStatus(todoitem)" class="btn btn-primary">Make Todo status Done</button><br></td>

@@ -1,0 +1,43 @@
+<div class="panel">
+  <div class="panel-heading">
+    <h5>Todo List with status</h5>
+  </div><br/>
+  <div class="panel-body">
+    <table class="table table-striped$event">
+      <thead>
+      <tr>
+        <td><B>Status:</B>
+          <input type="text" [(ngModel)]="status"/>&nbsp;&nbsp;&nbsp;
+          <button (click)="reloadData(status)" class="btn btn-primary btn-sm">Show TODOs</button>
+
+        </td><td>
+       </td>
+      </tr>
+      <tr>
+        <th><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of todoitems; let i=index; let odd = odd" [ngClass]="odd ? 'odd_col' : 'even_col'">
+        <td><input type="checkbox" value="{{p.id}}" [(ngModel)]="p.checked"></td>
+        <td>{{p.name}}</td>
+        <td>{{p.description}}</td>
+        <td><button (click)="deleteTodoItem(p.id)" class="btn btn-danger">Delete</button>
+          <button (click)="todoItemDetails(p.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="editTodoItem(p.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      <tr>
+        <div *ngIf="this.isButtonVisible">
+        <td> <button (click)="onSubmit()" class="btn btn-danger">Make the Todo Items Done</button>
+        </td>
+        </div>
+      </tr>
+      </tbody>
+      <ng-template #elseBlock>No record found</ng-template>
+    </table>
+  </div>
+</div>
